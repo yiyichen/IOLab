@@ -33,7 +33,7 @@ h2 {
 }
 
 /*body section*/
-.main-component{
+#pokedex-main-component{
 	background-image: url("assets/backgrounds/background_home.png");
 
 }
@@ -45,16 +45,19 @@ input[type=text] {
     box-sizing: border-box;
 }
 
+
+.pokemon-pic {
+	text-align: center;
+}
+
 .pokemon-pic img {
 	display: inline-block;
 	width:80pt;
 	margin: 0 auto;
-	align-content: center;
 }
 
 #selected-pokemon-pic {
 	display: inline-block;
-	margin: auto;
 	width: 30%;
 }
 
@@ -70,7 +73,7 @@ table {
 
 td {
 	background-color: #ffffff;
-    text-align: center;
+    /*text-align: center;*/
 	padding: 5px 20px;
 }
 
@@ -83,7 +86,7 @@ th {
 
 #selected-pokemon-description{
 	display: block;
-	margin: auto;
+	margin: 20px auto;
     border-radius: 25px;
     border: 2px solid #538cc6;
     padding: 20px;
