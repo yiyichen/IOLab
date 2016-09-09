@@ -47,3 +47,46 @@ table {
 /*----------------- CSS RESET ------------------*/
 
 /*Your main CSS should go here*/
+h1{
+	font-family: 'Lobster', cursive;
+	margin: 20px;
+	font-size: 3em;
+	text-align: center;
+}
+.project{
+	display: block;
+	text-align: center;
+	vertical-align: top;
+	margin: 20px 0px;
+}
+
+.project-image img{
+	width: 100%;
+}
+
+.project-image{
+	display: inline-block;
+	width: 40%;
+}
+
+.project-detail{
+	display: inline-block;
+	width: 40%;
+	/*margin: auto;*/
+	vertical-align: top;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 0.8em;
+	line-height: 15px;
+}
+
+.project-title{
+	font-family: 'Baloo Tamma', cursive;
+	font-size: 2em;
+	text-align: center;
+	margin: 10px;
+}
+
+
+footer{
+	text-align: center;
+}
