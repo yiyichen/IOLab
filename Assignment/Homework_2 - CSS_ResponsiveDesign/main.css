@@ -31,7 +31,7 @@ header{
 	text-align: center;
 	width: 100%;
 	color: #ffffff;
-	margin-bottom: 10px
+	margin-bottom: 1px;
 }
 
 .header-element {
@@ -46,13 +46,25 @@ h2 {
 	font-size: 1.5em;
 }
 
+#hamburger{
+	display: none;
+}
+
 #dropdown{
 	float:left;
-	vertical-align: middle;
+	/*vertical-align: middle;*/
 }
 
 #dropdown:hover {
 	background: #ff9999;
+}
+
+#hamburger:hover {
+	background: #ff9999;
+}
+
+#pokeball{
+	text-align: right;
 }
 
 /*body section*/
@@ -61,8 +73,13 @@ h2 {
 
 }
 
+.search-box{
+	text-align: center;
+	width: 80%;
+}
+
 input[type=text] {
-    width: 100%;
+	width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
@@ -70,11 +87,14 @@ input[type=text] {
 }
 
 .selected-pokemon {
-	width: 90%
+	width: 80%;
 }
 
 .pokemon-name {
 	display: none;
+	text-align: center;
+	color: #ffffff;
+	background-color: #538cc6;
 }
 
 .pokemon-pic {
@@ -99,17 +119,19 @@ input[type=text] {
 #selected-pokemon-property {
 	display: inline-block;
 	vertical-align: top;
+	width: 69%;
 }
 
 table {
     border-collapse: collapse;
     width: 100%;
-	border: 1px solid #ddd;
+	border: 1px solid #000000;
 }
 
 td {
 	background-color: #ffffff;
 	padding: 5px 40px;
+	height: 100px;
 }
 
 th {
@@ -123,7 +145,7 @@ th {
 	display: block;
 	margin: 20px auto;
     border-radius: 25px;
-    border: 2px solid #538cc6;
+    border: 5px solid #b30000;
     padding: 20px;
 	background: #ffffff;
 }
