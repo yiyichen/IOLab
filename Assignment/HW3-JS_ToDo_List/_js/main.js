@@ -1,16 +1,16 @@
-var todo_btn_style = "<a class='waves-effect waves-light btn-tiny green white-text' ";
+var todo_btn_style = "<a class='waves-effect waves-light btn-floating small orange darken-1 white-text' ";
 var todo_btn_id = "id='todo_";
-var todo_btn_text = "'> mark complete </a> ";
+var todo_btn_text = "'> <i class='small material-icons'>done</i></a> ";
 
-var completed_btn_style = "<a class='waves-effect waves-light btn-tiny green white-text' ";
+var completed_btn_style = "<a class='waves-effect waves-light btn-floating small blue-grey darken-1 white-text' ";
 var completed_btn_id = "id='completed_";
-var completed_btn_text = "'> mark to-do </a> ";
+var completed_btn_text = "'><i class='small material-icons'>replay</i></a> ";
 
 var btn_counter = 0;
 
 
 function item_remove(item){
-    console.log(item + " will be removed");
+    // console.log(item + " will be removed");
     $(item).remove();
 }
 
@@ -44,8 +44,9 @@ $(document).ready(
     })
 );
 
-$("#list_todo").on('click', ".btn-tiny", function() {
-    raw_id = $('.btn-tiny').get(0).id;
+$("#list_todo").on('click', ".btn-floating", function() {
+    raw_id = $(this).attr('id');
+    console.log("in list_todo, raw_id: " + raw_id);
     id = raw_id.split("_")[1];
 
     todo_task = "#todo_task_" + id;
@@ -59,9 +60,9 @@ $("#list_todo").on('click', ".btn-tiny", function() {
 });
 
 
-$("#list_completed").on('click', ".btn-tiny", function() {
-    raw_id = $('.btn-tiny').get(0).id;
-    console.log("raw_id: " + raw_id);
+$("#list_completed").on('click', ".btn-floating", function() {
+    raw_id = $(this).attr('id');
+    console.log("in list_completed, raw_id: " + raw_id);
     id = raw_id.split("_")[1];
 
     completed_task = "#completed_task_" + id;
