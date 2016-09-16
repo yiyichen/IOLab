@@ -2,7 +2,7 @@ var todo_btn_style = "<a class='waves-effect waves-light btn-floating small oran
 var todo_btn_id = "id='todo_";
 var todo_btn_text = "'> <i class='small material-icons'>done</i></a> ";
 
-var completed_btn_style = "<a class='waves-effect waves-light btn-floating small blue-grey darken-1 white-text' ";
+var completed_btn_style = "<a class='waves-effect waves-light btn-floating blue-grey lighten-1 white-text' ";
 var completed_btn_id = "id='completed_";
 var completed_btn_text = "'><i class='small material-icons'>replay</i></a> ";
 
