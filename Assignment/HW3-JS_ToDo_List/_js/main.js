@@ -1,3 +1,7 @@
+// $(this).html("Add To To-Do");
+// var completedItem = $(this).parent();
+// $("#list_completed").prepend(completedItem);
+
 var todo_btn_style = "<a class='waves-effect waves-light btn-floating small orange darken-1 white-text' ";
 var todo_btn_id = "id='todo_";
 var todo_btn_text = "'> <i class='small material-icons'>done</i></a> ";
@@ -34,12 +38,15 @@ function make_task(type, id, task_text){
 
 $(document).ready(
     $("#new-item").on('click', function() {
-        next_item = $("input");
+        // next_item = $("input");
+        //
+        // $.each(next_item, function(k, v) {
+        //     btn_counter ++;
+        //     $("#list_todo").prepend(make_task("todo", btn_counter, v.value));
+        // });
+        // $('#new_task').val('')
 
-        $.each(next_item, function(k, v) {
-            btn_counter ++;
-            $("#list_todo").prepend(make_task("todo", btn_counter, v.value));
-        });
+        $("#list_todo").prepend(make_task("todo", btn_counter, $('#new_task').val()));
         $('#new_task').val('')
     })
 );
