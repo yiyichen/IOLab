@@ -1,6 +1,9 @@
 /* Add CSS */
 /*font-family: 'Bungee Shade', cursive;
 font-family: 'Nothing You Could Do', cursive;*/
+.secondary-content{
+    position: relative !important;
+}
 
 #title{
     color: white;

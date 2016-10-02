@@ -1,3 +1,13 @@
+// <li class="collection-item avatar">
+//       <img src="images/yuna.jpg" alt="" class="circle">
+//       <span class="title">Title</span>
+//       <p>First Line <br>
+//          Second Line
+//       </p>
+//       <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+//     </li>
+
+
 /**
 ===================================
 ============= BUTTONS =============
@@ -5,15 +15,25 @@
 **/
 // pre-define all the buttons needed for this assignment, including
 // play, add to playlist, delete, move up, and move down
+// var play_btn = '\
+// <button class="btn-floating btn-small play orange darken-4"> \
+// <i class="small material-icons">play_arrow</i> \
+// </button>'
+
 var play_btn = '\
-<button class="btn-floating btn-small play orange darken-4"> \
-<i class="small material-icons">play_arrow</i> \
-</button>'
+<a href="#!" class="secondary-content play">\
+<i class="small material-icons play">play_arrow</i>\
+</a>'
 
 var addToPlaylist_btn = '\
-<button class="btn-floating btn-small addToPlaylist orange accent-4"> \
+<a href="#!" class="secondary-content addToPlaylist">\
 <i class="material-icons">playlist_add</i> \
-</button>'
+</a>'
+
+// var addToPlaylist_btn = '\
+// <button class="btn-floating btn-small addToPlaylist orange accent-4"> \
+// <i class="material-icons">playlist_add</i> \
+// </button>'
 
 var delete_btn = '\
 <button class="btn-floating btn-small delete blue-grey darken-1"> \
@@ -48,7 +68,7 @@ $(document).ready(
 		lastQuery = query;
 
 		if (query != ""){
-			$('#results').empty();
+			$('#results').children('ul').empty();
 			lastID = 0;
 			callAPI(query);
 			$('#new_search').val('');
@@ -82,7 +102,8 @@ function createSongs(data){
 			output += createSong(data[i]);
 		}
 		lastID = nextID;
-		$('#results').append(output);
+		// console.log(output);
+		$('#results').children('ul').append(output);
 	}
 }
 
@@ -100,22 +121,35 @@ function createSong(data){
 		art_img = data.artwork_url;
 	}
 
+	// var song_object =
+	// '<li class="collection-item avatar">' +
+	// play_btn + addToPlaylist_btn +
+	// '<div class="content">\
+	// <div class="col s2">\
+	// <img class="responsive-img" src=' + art_img + '>\
+	// </div>\
+	// \
+	// <div class="col s7">\
+	// <b>' + data.title + '</b><br> ' + data.user.username + '<br>\
+	// <a class="play_link" href=' + data.permalink_url + '>link</a>\
+	// </div>\
+	// </div>\
+	// \
+	// </li>';
+
 	var song_object =
-	'<div class="row">' +
-	'<div class="col s1">' + play_btn + '</div>' +
-	'<div class="col s1">' + addToPlaylist_btn + '</div>' +
+	'<li class="collection-item avatar">' +
+	play_btn + addToPlaylist_btn +
 	'<div class="content">\
-	<div class="col s2">\
-	<img class="responsive-img" src=' + art_img + '>\
-	</div>\
 	\
-	<div class="col s7">\
-	<b>' + data.title + '</b><br> ' + data.user.username + '<br>\
+	<img src=' + art_img + ' class="circle">\
+	\
+	<span class="title">' + data.title + '</span>' +
+	'<p>' + data.user.username + '<br>\
 	<a class="play_link" href=' + data.permalink_url + '>link</a>\
 	</div>\
-	</div>\
 	\
-	</div>';
+	</li>';
 	return song_object;
 }
 
@@ -124,6 +158,33 @@ function createSong(data){
 ============= PLAY SONGS & ADD TO PLAYLIST =============
 ========================================================
 **/
+
+$("#results").on('click', "a", function() {
+
+	var song_object = $(this).parent();
+	var btnClass = $(this).attr("class");
+
+	console.log(btnClass);
+	// if user clicks 'play'
+	if (btnClass.indexOf("play") >= 0){
+		console.log("we are here");
+		var playLink = song_object.find(".play_link").attr('href');
+		changeTrack(playLink);
+	}
+
+	// if user clicks 'add to playlist'
+	else if (btnClass.indexOf("addToPlaylist") >= 0) {
+		var songToAdd = song_object.clone();
+		songToAdd = updateSong(songToAdd.find(".content").html());
+		$('#favorites').prepend(songToAdd);
+
+	}
+});
+//
+// $("a").click(function () {
+// 	console.log('detect click');
+// });
+
 // when user clicks on a button, figure out which button is clicked
 // (play or add to playlist) and perform the corresponding actions
 $("#results").on('click', ".btn-floating", function() {
