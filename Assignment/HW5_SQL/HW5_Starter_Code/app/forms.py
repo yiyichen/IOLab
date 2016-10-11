@@ -10,3 +10,4 @@ class CustomerForm(Form):
 
 class OrderForm(Form):
     # Add order input form fields here
+    pass

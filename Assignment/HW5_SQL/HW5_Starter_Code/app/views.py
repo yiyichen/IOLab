@@ -27,5 +27,5 @@ def display_customer():
 def create_order(value):
         # Get data from the form
         # Send data from form to Database
-        return redirect('/customers')
+        # return redirect('/customers')
     return render_template('order.html', form=orderForm)
