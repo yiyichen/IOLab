@@ -54,6 +54,12 @@ def submitSurvey():
 		surveyResponse['fe-after'] = request.form.get('feAfter')
 		#new fields for comments and focus
 		#insert code here to send surveyresponse into your mongoDB
+		model.insertRecords(username, email,
+		surveyResponse['color'],
+		surveyResponse['food'],
+		surveyResponse['vacation'],
+		surveyResponse['fe-before'],
+		surveyResponse['fe-after'])
 
 		return render_template('results.html', name=username, email=email, surveyResponse=surveyResponse)
 	else:
