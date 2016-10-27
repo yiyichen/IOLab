@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>API Creation Lab</title>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+	</head>
+
+	<body>
+
+		<header>
+			<div id="site-title-wrapper">
+				<a href='/'><h3 id="site-title">API Creation Lab</h3></a>
+			</div>
+
+			<div id="test-links">
+				<a href='get-all-tasks'>Get All Tasks</a>
+				<a href='get-task-by-id'>Get One Task</a>
+				<a href='get-task-by-id-error'>Test Get One Task Error</a>
+				<a href='create-new-task'>Create New Task</a>
+				<a href='create-new-task-error'>Test Create New Task Error</a>
+			</div>
+		</header>
+
+		<div id="content">
+			<pre>{{data}}</pre>
+		</div>
+
+	</body>
+</html>
